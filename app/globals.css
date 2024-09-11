@@ -65,5 +65,51 @@
   }
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
+  /* Additional text-related styles */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* Additional text-related styles outside of Tailwind layers */
+::selection {
+  @apply bg-primary text-primary-foreground;
+}
+
+/* Improve readability for dyslexic users */
+.font-dyslexic {
+  font-family: 'OpenDyslexic', sans-serif;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+}
+
+/* Enhance focus styles for better accessibility */
+:focus {
+  @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent adjustments of font size after orientation changes in iOS */
+html {
+  -webkit-text-size-adjust: 100%;
 }
